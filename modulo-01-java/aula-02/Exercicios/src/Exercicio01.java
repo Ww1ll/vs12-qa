@@ -4,10 +4,13 @@ public class Exercicio01 {
         int soma = 0;
         int media = 0;
 
-        soma = valores[0] + valores[1] + valores[2];
-        media = valores[0] + valores[1] + valores[2]/ 3;
+        for(int i = 0; i< valores.length; i++){
+            soma += valores[i];
+        }
 
-        System.out.println(soma);
-        System.out.println(media);
+        media = soma/3;
+
+        System.out.println(" A soma é: " + soma);
+        System.out.println(" A média é: " + media);
     }
 }

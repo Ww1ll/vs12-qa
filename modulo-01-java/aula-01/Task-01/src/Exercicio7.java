@@ -9,7 +9,11 @@ public class Exercicio7 {
         int quantidadeComprada = 0;
         float precoTotal = 0;
 
+
+
         System.out.println("Informe o código do produto: ");
+        System.out.println("Os códigos disponíveis são: ");
+        System.out.println("ABCD - XYPK - KLMP - QRST");
         codigo = entrada.next();
 
         System.out.println("Informe a quantidade comprada");

@@ -36,12 +36,14 @@ public class ContaCorrente {
         return true;
     }
 
-    public boolean transferir(Double transferir, Cliente clienteTransferido){
+    public boolean transferir(Double transferir, ContaCorrente contaTransferida){
         if (transferir < 0){
             return false;
         }
         this.saldo -= transferir;
-        System.out.println(cliente.nome + " transferiu " + transferir + " para " + clienteTransferido.nome);
+        contaTransferida.saldo += transferir;
+
+        System.out.println(cliente.nome + " transferiu " + transferir + " para " + contaTransferida.cliente.nome);
         return true;
     }
 }

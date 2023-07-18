@@ -34,7 +34,7 @@ public class Main {
 
         contatoCliente1.tipoEndereco = 1;
         contatoCliente1.descricao = "Celular";
-        contatoCliente1.telefone = "11 98520-0254";
+        contatoCliente1.telefone = "8524-0220";
 
 
 
@@ -77,7 +77,7 @@ public class Main {
     ///////////////////////////////////////////////////////////////////////////////
 
         // Transferência entre clientes
-        contaCliente1.transferir(500.00, cliente2);
+        contaCliente1.transferir(500.00, contaCliente2);
 
         contaCliente1.imprimirContaCorrente();
         contaCliente2.imprimirContaCorrente();

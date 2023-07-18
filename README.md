@@ -17,4 +17,9 @@
 ## Exercício 05
 ### Foi utilizado como referência o seguinte post para verificação do menor valor digitado em um vetor
 ### https://pt.stackoverflow.com/questions/443815/menor-valor-digitado-em-um-vetor
-#### Neste exercício, quando imprimo no console o mercado mais barato, ele me retorna 0.0. Ainda não encontrei solução para esse problema.
+
+# Task-conta-corrente
+### Foi utilizado como referência para entender como acessar outro objeto em java
+### https://www.guj.com.br/t/acessando-objetos-por-referencias/86938
+
+

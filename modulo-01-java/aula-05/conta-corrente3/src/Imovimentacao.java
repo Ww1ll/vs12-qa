@@ -1,10 +1,9 @@
 public interface Imovimentacao {
 
-      default boolean sacar(double sacar){
-        return true;
-      }
-
+    boolean sacar(double sacar);
     boolean sacar(double sacar, ContaCorrente contaCorrente);
+
+    boolean sacar(double sacar, ContaPagamento contaPagamento);
 
     boolean depositar(double depositar);
 

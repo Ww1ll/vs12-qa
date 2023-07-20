@@ -22,4 +22,10 @@
 ### Foi utilizado como referência para entender como acessar outro objeto em java
 ### https://www.guj.com.br/t/acessando-objetos-por-referencias/86938
 
+### Foi utilizado como referência para entender como adicionar o ArratList como instancia
+### https://stackoverflow.com/questions/29681431/java-arraylist-add-method-in-the-instance-variable-section
+### https://stackoverflow.com/questions/40193888/adding-data-into-arraylist-of-another-class
+
+
+
 

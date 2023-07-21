@@ -53,21 +53,20 @@ public class Cliente {
 
     public void imprimirContatos(){
             for (Object listaContatos : contatos){
-                System.out.println(listaContatos);
+                System.out.println(listaContatos.toString());
             }
 
     }
 
     public void imprimirEnderecos(){
-
         for (Object listaEnderecos : enderecos){
-            System.out.println(listaEnderecos);
+            System.out.println(listaEnderecos.toString());
         }
 
     }
 
     public void imprimirCliente(){
-        System.out.println("Cliente: " + nome + " CPF: " + cpf);
+        System.out.println("\nCliente: " + nome + "\nCPF: " + cpf);
 
     }
 

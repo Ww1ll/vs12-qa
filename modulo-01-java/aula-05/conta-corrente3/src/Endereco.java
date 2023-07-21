@@ -92,4 +92,9 @@ public class Endereco {
 
     }
 
+    @Override
+    public String toString(){
+        return logradouro + " " + cidade + " " + estado;
+    }
+
 }

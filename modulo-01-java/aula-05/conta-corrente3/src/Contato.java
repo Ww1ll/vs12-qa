@@ -41,4 +41,9 @@ public class Contato {
         }
     }
 
+    @Override
+    public String toString(){
+        return  descricao + " " + telefone;
+    }
+
 }

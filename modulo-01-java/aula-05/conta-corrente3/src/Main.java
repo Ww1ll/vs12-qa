@@ -100,10 +100,18 @@ public class Main {
         System.out.println(contaCorrenteCliente1.getSaldo());
 
 
+        System.out.println("Endereço: ");
         cliente1.imprimirEnderecos();
 
+        System.out.println("Contatos: ");
         cliente1.imprimirContatos();
 
+        System.out.println("===================");
+        cliente1.imprimirCliente();
+        System.out.println("Agência: " + contaCliente1.getAgencia());
+        System.out.println("Numero: " + contaCliente1.getNumeroConta());
+        System.out.println("Saldo Conta Corrente: " + contaCorrenteCliente1.getSaldo());
+        System.out.println("Saldo Conta Pagamento: " + contaPagamento1.getSaldo());
 
 
     }

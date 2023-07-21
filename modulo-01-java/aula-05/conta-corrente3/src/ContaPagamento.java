@@ -10,7 +10,7 @@ public class ContaPagamento extends Conta implements Iimpressao{
 
     @Override
     public boolean sacar(double sacar, ContaPagamento contaPagamento){
-        double saldoContaPagamento = contaPagamento.getSaldo();
+        double saldoContaPagamento = contaPagamento.getSaldo() + TAXA_SAQUE;
         if (sacar < 0 || sacar > saldoContaPagamento){
             return false;
         } else {

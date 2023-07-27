@@ -183,47 +183,79 @@ VALUES (SEQ_BAIRRO.NEXTVAL, 8, 4, 'Avenida dos Lagos',052, 'Sem complemento', '5
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 9, 5, 'Havnegata', 12, 'Bloco 2', '7010');
 
+UPDATE VEM_SER.ENDERECO SET cep = '69000-000' WHERE LOGRADOURO = 'Havnegata';
+
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 9, 5, 'Fjordveien', 45, 'Apartamento 5', '0182');
+
+UPDATE VEM_SER.ENDERECO SET cep = '69000-123' WHERE LOGRADOURO = 'Fjordveien';
 
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 10, 5, 'Skogsgata', 22, 'Bloco3', '9008');
 
+UPDATE VEM_SER.ENDERECO SET cep = '69000-120' WHERE LOGRADOURO = 'Skogsgata';
+
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 10, 5, 'Fjellveien', 11, 'Apartamento 4', '5003');
+
+UPDATE VEM_SER.ENDERECO SET cep = '67786-980' WHERE LOGRADOURO = 'Fjellveien';
 
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 11, 6, 'Strandveien', 9, 'Bloco 1', '7001');
 
+UPDATE VEM_SER.ENDERECO SET cep = '67780-900' WHERE LOGRADOURO = 'Strandveien';
+
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 11, 6, 'Gatenavn', 77, 'Bloco 6', '4002');
+
+UPDATE VEM_SER.ENDERECO SET cep = '67780-872' WHERE LOGRADOURO = 'Gatenavn';
 
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 12, 6, 'Sjøveien', 3, 'Apartamento 2A', '6006');
 
+UPDATE VEM_SER.ENDERECO SET cep = '67090-870' WHERE LOGRADOURO = 'Sjøveien';
+
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 12, 6, 'Gårdsgaten', 14, 'Apartamento 3', '8004');
+
+UPDATE VEM_SER.ENDERECO SET cep = '67090-321' WHERE LOGRADOURO = 'Gårdsgaten';
 
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 13, 7, 'Skogveien', 33, 'Bloco 7', '9011');
 
+UPDATE VEM_SER.ENDERECO SET cep = '67090-000' WHERE LOGRADOURO = 'Skogveien';
+
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 13, 7, 'Fjellgata', 8, 'Apartamento 2B', '5001');
+
+UPDATE VEM_SER.ENDERECO SET cep = '67090-598' WHERE LOGRADOURO = 'Fjellgata';
 
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 14, 7, 'Sjøgata', 21, 'Bloco 4', '7003');
 
+UPDATE VEM_SER.ENDERECO SET cep = '67000-980' WHERE LOGRADOURO = 'Sjøgata';
+
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 14, 7, 'Bakkeveien', 16, 'Bloco 8', '4006');
+
+UPDATE VEM_SER.ENDERECO SET cep = '67000-069' WHERE LOGRADOURO = 'Bakkeveien';
 
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 15, 8, 'Fjordgata', 29, 'Apartamento 3A', '6010');
 
+UPDATE VEM_SER.ENDERECO SET cep = '69000-000' WHERE LOGRADOURO = 'Havnegata';
+
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 15, 8, 'Gårdsplassen', 10, 'Bloco 5', '8001');
+
+UPDATE VEM_SER.ENDERECO SET cep = '67000-060' WHERE LOGRADOURO = 'Gårdsplassen';
 
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 16, 8, 'Havnepromenaden', 42, 'Apartamento 9', '0188');
 
+UPDATE VEM_SER.ENDERECO SET cep = '69000-068' WHERE LOGRADOURO = 'Havnepromenaden';
+
 INSERT INTO VEM_SER.ENDERECO(id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_BAIRRO.NEXTVAL, 16, 8, 'Skogsveien', 13, 'Bloco 6B', '9003');
+
+UPDATE VEM_SER.ENDERECO SET cep = '69000-098' WHERE LOGRADOURO = 'Skogsveien';

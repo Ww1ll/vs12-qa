@@ -7,7 +7,7 @@ SELECT * FROM VEM_SER.PAIS ORDER BY NOME DESC;
 SELECT logradouro, cep FROM VEM_SER.ENDERECO WHERE LOWER(logradouro) LIKE 'a%';
 
 -- Selecionando endereços com CEP final '0'
-SELECT * FROM VEM_SER.ENDERECO WHERE CEP LIKE '%0' AND LENGTH(CEP) = 9;
+SELECT * FROM VEM_SER.ENDERECO WHERE TRIM(CEP) LIKE '%0';
 
 -- Selecionando endereços com numeros entre 1 e 100
 SELECT * FROM VEM_SER.ENDERECO WHERE NUMERO BETWEEN 1 AND 100;
@@ -20,3 +20,5 @@ SELECT COUNT(id_endereco) FROM VEM_SER.ENDERECO;
 
 -- Selecionando a quantidade de endereços cadastrados e agrupando-os pelo id da cidade
 SELECT COUNT(id_endereco), id_cidade FROM VEM_SER.ENDERECO GROUP BY id_cidade;
+
+

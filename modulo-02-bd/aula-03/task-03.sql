@@ -28,12 +28,13 @@ SELECT * FROM PESSOA p
 	FULL JOIN ENDERECO_PESSOA ep ON (PXPE.ID_ENDERECO = EP.ID_ENDERECO);
 
 -- EXISTS
-
 SELECT * FROM PESSOA P WHERE EXISTS (SELECT * FROM ENDERECO_PESSOA ep WHERE p.ID_PESSOA IN ep.ID_ENDERECO);
 
+
 -- Selecionando id, nome da tabela pessoa e id, logradouro da tabela endereço
-SELECT p.ID_PESSOA, p.nome, EP.id_endereco, EP.logradouro FROM PESSOA p 
-	LEFT JOIN ENDERECO_PESSOA EP ON (p.ID_PESSOA  = EP.ID_ENDERECO);
+SELECT p.ID_PESSOA, p.nome FROM PESSOA p 
+	UNION
+	SELECT EP.id_endereco, EP.logradouro FROM ENDERECO_PESSOA EP;
 
 
 

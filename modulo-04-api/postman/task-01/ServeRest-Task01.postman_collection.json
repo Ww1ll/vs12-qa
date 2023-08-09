@@ -1,0 +1,474 @@
+{
+	"info": {
+		"_postman_id": "f3830acb-701e-4394-aedf-9cc95e8d22dd",
+		"name": "ServeRest-Task01",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25744873"
+	},
+	"item": [
+		{
+			"name": "Listar Produtos Cadastrados",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_ServeRest}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/Produtos?nome=Samsung 60 polegadas&_id=-5&nome=nomeInvalido",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Produtos"
+					],
+					"query": [
+						{
+							"key": "nome",
+							"value": "Samsung 60 polegadas"
+						},
+						{
+							"key": "_id",
+							"value": "-5"
+						},
+						{
+							"key": "nome",
+							"value": "nomeInvalido"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Produtos por ID - Cenário 1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_ServeRest}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/Produtos/K6leHdftCeOJj8BJ",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Produtos",
+						"K6leHdftCeOJj8BJ"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Produtos por ID - Cenário 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_ServeRest}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/Produtos/:K6leHdftCeOJj8BJ",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Produtos",
+						":K6leHdftCeOJj8BJ"
+					],
+					"variable": [
+						{
+							"key": "K6leHdftCeOJj8BJ",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Produtos por ID - Cenário 3",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_ServeRest}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/Produtos/:",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Produtos",
+						":"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Produto - Cenário 1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_ServeRest}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"novo Logitech\",\r\n  \"preco\": 457,\r\n  \"descricao\": \"Teclado novo\",\r\n  \"quantidade\": 254\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/Produtos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Produto Inválido - Cenário 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_ServeRest}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"\",\r\n  \"preco\": 457,\r\n  \"descricao\": \"Teclado novo\",\r\n  \"quantidade\": 254\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/Produtos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Produto Inválido - Cenário 3",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_ServeRest}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Samsung 60 polegadas\",\r\n  \"preco\": 457,\r\n  \"descricao\": \"Teclado novo\",\r\n  \"quantidade\": 254\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/Produtos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir Produto por ID - Cenário 1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_ServeRest}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/Produtos/LkYb7TZ2LXu2I44g",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Produtos",
+						"LkYb7TZ2LXu2I44g"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir Produto por ID - Cenário 2 - ID já excluído",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_ServeRest}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/Produtos/LkYb7TZ2LXu2I44g",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Produtos",
+						"LkYb7TZ2LXu2I44g"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir Produto por ID - Cenário 3 - ID nao existe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_ServeRest}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/Produtos/LkYb7TZ2LXu20",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Produtos",
+						"LkYb7TZ2LXu20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Produto por ID - Cenário 1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_ServeRest}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Logitech MX Horizontal\",\r\n    \"preco\": 470,\r\n    \"descricao\": \"Mouse\",\r\n    \"quantidade\": 381\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/Produtos/:0uxuPY0cbmQhpEz1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Produtos",
+						":0uxuPY0cbmQhpEz1"
+					],
+					"variable": [
+						{
+							"key": "0uxuPY0cbmQhpEz1",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Produto por ID - Cenário 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_ServeRest}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Samsung 60 polegadas\",\r\n    \"preco\": 470,\r\n    \"descricao\": \"Mouse\",\r\n    \"quantidade\": 381\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/Produtos/:0uxuPY0cbmQhpEz1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Produtos",
+						":0uxuPY0cbmQhpEz1"
+					],
+					"variable": [
+						{
+							"key": "0uxuPY0cbmQhpEz1",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Produto por ID - Cenário 3 - ID inexistente",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_ServeRest}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Samsung 60 polegadas\",\r\n    \"preco\": 470,\r\n    \"descricao\": \"Mouse\",\r\n    \"quantidade\": 381\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/Produtos/:0",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Produtos",
+						":0"
+					],
+					"variable": [
+						{
+							"key": "0",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

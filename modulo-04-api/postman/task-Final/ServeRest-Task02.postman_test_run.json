@@ -1,0 +1,577 @@
+{
+	"id": "315b6f50-3217-4cd3-bfc6-73d94c2d89df",
+	"name": "ServeRest-Task02",
+	"timestamp": "2023-08-11T13:41:02.885Z",
+	"collection_id": "25744873-5ebfcd2e-b654-4af4-9574-6342acdaa88c",
+	"folder_id": 0,
+	"environment_id": "25744873-438db655-0606-4f77-8f45-eb6e3d4cc35f",
+	"totalPass": 30,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-08-11T13:40:59.605Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "071eb90e-7f79-4bd5-9592-a94e0eec1ed9",
+			"name": "CT001-Cadastrar Produto",
+			"url": "http://localhost:3000/Produtos",
+			"time": 19,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Validar cadastro de produto com sucesso": true,
+				"Excluir massa de teste com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validar cadastro de produto com sucesso": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Excluir massa de teste com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Validar cadastro de produto com sucesso": true,
+					"Excluir massa de teste com sucesso": true
+				}
+			]
+		},
+		{
+			"id": "3806b8e9-b01f-4929-98f0-01cc3d809e65",
+			"name": "CT002-Cadastrar Produto Inválido com nome vazio",
+			"url": "http://localhost:3000/Produtos",
+			"time": 116,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				116
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "f1347eb4-a5e8-4793-b00b-a49857ba835b",
+			"name": "CT003-Cadastrar Produto Inválido com nome já existente",
+			"url": "http://localhost:3000/Produtos",
+			"time": 10,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Excluir massa de teste com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Excluir massa de teste com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Excluir massa de teste com sucesso": true
+				}
+			]
+		},
+		{
+			"id": "b62ed41b-d78c-4666-9a9f-8b6da796aa3b",
+			"name": "CT001-Listar Produtos por ID com sucesso",
+			"url": "http://localhost:3000/Produtos/YivP8SgsEc12qhPu",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Validar busca por ID": true,
+				"Excluir massa de teste com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validar busca por ID": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Excluir massa de teste com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Validar busca por ID": true,
+					"Excluir massa de teste com sucesso": true
+				}
+			]
+		},
+		{
+			"id": "75c327ce-0234-48f4-8882-cc8eeccc190a",
+			"name": "CT002-Listar Produtos por ID não válido",
+			"url": "http://localhost:3000/Produtos/ID_invalido",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "56222cfd-5cf7-403c-9449-8f5b482e4905",
+			"name": "CT003-Listar Produtos por ID vazio",
+			"url": "http://localhost:3000/Produtos/:id",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "5dc51782-0c6a-464c-b01e-710c35aeef4c",
+			"name": "CT001-Listar Produtos com sucesso",
+			"url": "http://localhost:3000/Produtos/VRWNESXnJPbz72TD",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Validar busca de produtos com sucesso": true,
+				"Excluir massa de teste com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validar busca de produtos com sucesso": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Excluir massa de teste com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Validar busca de produtos com sucesso": true,
+					"Excluir massa de teste com sucesso": true
+				}
+			]
+		},
+		{
+			"id": "952ce08e-588d-4ab9-8edf-635074a10274",
+			"name": "CT001-Listar Produtos com ID inválido",
+			"url": "http://localhost:3000/Produtos/id_invalido",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Validar busca de produtos com ID inválido": true,
+				"Excluir massa de teste com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validar busca de produtos com ID inválido": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Excluir massa de teste com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Validar busca de produtos com ID inválido": true,
+					"Excluir massa de teste com sucesso": true
+				}
+			]
+		},
+		{
+			"id": "e291c9cf-8c89-4f38-aef1-abc6c0eb0f66",
+			"name": "CT001-Listar Produtos com nome inválido",
+			"url": "http://localhost:3000/Produtos/?nome=nomeInvalido",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Validar busca de produtos com nome inválido": true,
+				"Excluir massa de teste com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validar busca de produtos com nome inválido": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Excluir massa de teste com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Validar busca de produtos com nome inválido": true,
+					"Excluir massa de teste com sucesso": true
+				}
+			]
+		},
+		{
+			"id": "29c39f95-72ce-4662-8340-e67263a6f931",
+			"name": "CT001-Editar Produto por ID com sucesso",
+			"url": "http://localhost:3000/Produtos/D6USQSSaN6OtPf7r",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Excluir massa de teste com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Excluir massa de teste com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Excluir massa de teste com sucesso": true
+				}
+			]
+		},
+		{
+			"id": "7df5a5c7-3e6f-4213-b9ef-8ba064ec18b7",
+			"name": "CT002-Editar Produto por ID com nome já existente",
+			"url": "http://localhost:3000/Produtos/:0uxuPY0cbmQhpEz1",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Excluir massa de teste com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Excluir massa de teste com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Excluir massa de teste com sucesso": true
+				}
+			]
+		},
+		{
+			"id": "feea3306-f949-462d-bab4-6976e93457f1",
+			"name": "CT003-Editar Produto por ID inexistente",
+			"url": "http://localhost:3000/Produtos/idInexistente",
+			"time": 15,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "fee57dfb-efaa-4778-8f08-7ace2b57d7b1",
+			"name": "CT001-Excluir Produto por ID com sucesso",
+			"url": "http://localhost:3000/Produtos/wEkGE1SQLeFyHoOr",
+			"time": 20,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Excluir produto por ID": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Excluir produto por ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				20
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Excluir produto por ID": true
+				}
+			]
+		},
+		{
+			"id": "7e65831b-95ec-4aab-b5dd-29ae52514751",
+			"name": "CT002-Excluir Produto por ID inexistente",
+			"url": "http://localhost:3000/Produtos/id_inexistente",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "1b5e1776-cf03-4e6f-9c8c-0077c7303eae",
+			"name": "CT003-Excluir Produto por ID sem autorização",
+			"url": "http://localhost:3000/Produtos/LkYb7TZ2LXu20",
+			"time": 10,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Excluir produto por ID": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Excluir produto por ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Excluir produto por ID": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 274,
+	"collection": {
+		"requests": [
+			{
+				"id": "071eb90e-7f79-4bd5-9592-a94e0eec1ed9",
+				"method": "POST"
+			},
+			{
+				"id": "3806b8e9-b01f-4929-98f0-01cc3d809e65",
+				"method": "POST"
+			},
+			{
+				"id": "f1347eb4-a5e8-4793-b00b-a49857ba835b",
+				"method": "POST"
+			},
+			{
+				"id": "b62ed41b-d78c-4666-9a9f-8b6da796aa3b",
+				"method": "GET"
+			},
+			{
+				"id": "75c327ce-0234-48f4-8882-cc8eeccc190a",
+				"method": "GET"
+			},
+			{
+				"id": "56222cfd-5cf7-403c-9449-8f5b482e4905",
+				"method": "GET"
+			},
+			{
+				"id": "5dc51782-0c6a-464c-b01e-710c35aeef4c",
+				"method": "GET"
+			},
+			{
+				"id": "952ce08e-588d-4ab9-8edf-635074a10274",
+				"method": "GET"
+			},
+			{
+				"id": "e291c9cf-8c89-4f38-aef1-abc6c0eb0f66",
+				"method": "GET"
+			},
+			{
+				"id": "29c39f95-72ce-4662-8340-e67263a6f931",
+				"method": "PUT"
+			},
+			{
+				"id": "7df5a5c7-3e6f-4213-b9ef-8ba064ec18b7",
+				"method": "PUT"
+			},
+			{
+				"id": "feea3306-f949-462d-bab4-6976e93457f1",
+				"method": "PUT"
+			},
+			{
+				"id": "fee57dfb-efaa-4778-8f08-7ace2b57d7b1",
+				"method": "DELETE"
+			},
+			{
+				"id": "7e65831b-95ec-4aab-b5dd-29ae52514751",
+				"method": "DELETE"
+			},
+			{
+				"id": "1b5e1776-cf03-4e6f-9c8c-0077c7303eae",
+				"method": "DELETE"
+			}
+		]
+	}
+}

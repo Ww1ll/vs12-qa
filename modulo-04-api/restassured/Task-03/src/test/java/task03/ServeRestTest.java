@@ -27,7 +27,7 @@ public class ServeRestTest {
                 ;
     }
 
-    // GET
+
 
     @Test
     public void testBuscarProdutoPorIdComSucesso(){
@@ -130,7 +130,7 @@ public class ServeRestTest {
 
 
 
-    // POST
+
     @Test
     public void testCadastrarProdutoComSucesso(){
 
@@ -191,7 +191,7 @@ public class ServeRestTest {
         ;
     }
 
-    // PUT
+
     @Test
     public void testEditarProdutoPorIdComSucesso(){
         String idProduto = "3lbkbpgkgTYDoKru";
@@ -214,7 +214,7 @@ public class ServeRestTest {
         ;
     }
 
-    // voltar
+
     @Test
     public void testEditarProdutoPorIdComNomeExistente(){
         String idProduto = "2sHQLTOVmDWe1spG";
@@ -264,7 +264,7 @@ public class ServeRestTest {
     }
 
 
-    // DELETE
+
     @Test
     public void testExcluirProdutoPorIdComSucesso(){
         String idProduto = "4shF5p0YzRe0MRGE";

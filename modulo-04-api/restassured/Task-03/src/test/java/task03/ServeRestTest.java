@@ -255,9 +255,9 @@ public class ServeRestTest {
                 .contentType(ContentType.JSON)
                 .body(produto)
                 .pathParam("idProduto", idProduto)
-                .when()
+        .when()
                 .put("/produtos/{idProduto}")
-                .then()
+        .then()
                 .log().all()
                 .statusCode(400)
         ;

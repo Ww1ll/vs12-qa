@@ -1,10 +1,16 @@
-package pojo;
+package basico.pojo;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class ProdutoPojo {
     private String nome;
     private Integer preco;
     private String descricao;
     private Integer quantidade;
+
+    @JsonIgnore
+    private String _id;
+
 
     public ProdutoPojo() {
     }
@@ -41,6 +47,14 @@ public class ProdutoPojo {
         this.quantidade = quantidade;
     }
 
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 
     @Override
     public String toString() {

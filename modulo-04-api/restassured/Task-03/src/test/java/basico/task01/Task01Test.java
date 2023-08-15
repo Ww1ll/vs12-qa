@@ -1,13 +1,13 @@
-package task03;
+package basico.task01;
 
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pojo.ProdutoPojo;
+import basico.pojo.ProdutoPojo;
 
 import static io.restassured.RestAssured.*;
 
-public class ServeRestTest {
+public class Task01Test {
 
     private String token;
 

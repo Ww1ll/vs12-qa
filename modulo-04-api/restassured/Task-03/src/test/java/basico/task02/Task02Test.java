@@ -192,7 +192,6 @@ public class Task02Test {
     }
 
 
-//////////////////////////////////////////voltar aqui pra baixo
     @Test
     public void testCadastrarProdutoInvalidoComNomeVazio(){
         ProdutoPojo produtoCadastradoInvalido = new ProdutoPojo();

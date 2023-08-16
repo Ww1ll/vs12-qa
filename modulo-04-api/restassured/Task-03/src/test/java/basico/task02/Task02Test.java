@@ -19,14 +19,17 @@ public class Task02Test {
 
         baseURI = "http://localhost:3000/";
 
+        String email = System.getenv("EMAIL");
+        String password = System.getenv("PASSWORD");
+
         this.token =
                 given()
                         .contentType(ContentType.JSON)
-                        .body("{\"email\": \"fulano@qa.com\",  \"password\": \"teste\"}")
-                        .when()
+                        .body("{\"email\": \"" + email + "\",  \"password\": \"" + password + "\"}")
+                .when()
                         .post("/login")
-                        .then()
-                        .extract().response().jsonPath().getString("authorization");
+                .then()
+                        .extract().response().jsonPath().getString("authorization")
         ;
     }
 
@@ -98,7 +101,7 @@ public class Task02Test {
                 .log().all()
                 .statusCode(200)
                 .assertThat()
-                .body("descricao", equalTo("Gamer"))
+                .body("produtos.nome", hasItems("Playstation 5"))
         ;
     }
 
@@ -148,7 +151,6 @@ public class Task02Test {
     @Test
     public void testCadastrarProdutoComSucesso(){
 
-        // pre-request
         ProdutoPojo produtoCadastrado = new ProdutoPojo();
         produtoCadastrado.setNome("Copo MLB500");
         produtoCadastrado.setPreco(58);
@@ -156,7 +158,6 @@ public class Task02Test {
         produtoCadastrado.setQuantidade(12);
 
 
-        //request
         String id =
         given()
                 .header("Authorization", this.token)
@@ -172,7 +173,6 @@ public class Task02Test {
         ;
 
 
-        // test
         ProdutoPojo produtoResultado =
         given()
                 .log().all()
@@ -192,35 +192,35 @@ public class Task02Test {
     }
 
 
-
+//////////////////////////////////////////voltar aqui pra baixo
     @Test
     public void testCadastrarProdutoInvalidoComNomeVazio(){
-        ProdutoPojo produtoCadastrado = new ProdutoPojo();
-        produtoCadastrado.setNome("");
-        produtoCadastrado.setPreco(50);
-        produtoCadastrado.setDescricao("Copo Dallas Cowboys");
-        produtoCadastrado.setQuantidade(12);
+        ProdutoPojo produtoCadastradoInvalido = new ProdutoPojo();
+        produtoCadastradoInvalido.setNome("");
+        produtoCadastradoInvalido.setPreco(50);
+        produtoCadastradoInvalido.setDescricao("Copo Dallas Cowboys");
+        produtoCadastradoInvalido.setQuantidade(12);
 
 
-        String nome =
+        String id =
                 given()
                         .header("Authorization", this.token)
                         .contentType(ContentType.JSON)
-                        .body(produtoCadastrado)
+                        .body(produtoCadastradoInvalido)
                 .when()
                         .post("/produtos")
                 .then()
                         .log().all()
                         .statusCode(400)
-                        .body("message", equalTo("nome não pode ficar em branco"))
-                        .extract().jsonPath().get("nome").toString()
+                        .body("message", equalTo(null))
+                        .extract().jsonPath().get("_id").toString()
                 ;
 
         ProdutoPojo produtoResultado =
         given()
                 .log().all()
                 .header("Authorization", this.token)
-                .pathParam("nome", nome)
+                .pathParam("_id", id)
         .when()
                 .get("/produtos/{_id}")
         .then()
@@ -230,14 +230,15 @@ public class Task02Test {
                     .as(ProdutoPojo.class)
         ;
 
-        Assertions.assertNull(null, produtoResultado.getNome());
+        Assertions.assertNull(produtoResultado.getNome());
+
 
     }
 
 
     @Test
     public void testCadastrarProdutoInvalidoComNomeJaExistente(){
-        // pre-request
+
         ProdutoPojo produtoCadastrado = new ProdutoPojo();
         produtoCadastrado.setNome("Copo MLB500");
         produtoCadastrado.setPreco(58);
@@ -245,7 +246,6 @@ public class Task02Test {
         produtoCadastrado.setQuantidade(12);
 
 
-        //request
         String nome =
                 given()
                         .header("Authorization", this.token)
@@ -257,11 +257,10 @@ public class Task02Test {
                         .log().all()
                         .statusCode(400)
                         .body("message", equalTo("Já existe produto com esse nome"))
-                        .extract().jsonPath().get("nome").toString()
+                        .extract().jsonPath().get("nome")
                 ;
 
 
-        // test
         ProdutoPojo produtoResultado =
                 given()
                         .log().all()
@@ -283,47 +282,47 @@ public class Task02Test {
 
     @Test
     public void testEditarProdutoPorIdComSucesso(){
-        String idProduto = "3lbkbpgkgTYDoKru";
 
-        ProdutoPojo produtoCadastrado = new ProdutoPojo();
-        produtoCadastrado.setNome("Copo NFL NYG");
-        produtoCadastrado.setPreco(47);
-        produtoCadastrado.setDescricao("Copo New Yor Giants");
-        produtoCadastrado.setQuantidade(10);
+        String idProduto = "6QDbS2TIM9viRF16";
 
-        //request
+        ProdutoPojo produtoEditado = new ProdutoPojo();
+        produtoEditado.setNome("Novo Copo NHLS");
+        produtoEditado.setPreco(47);
+        produtoEditado.setDescricao("Novo copo");
+        produtoEditado.setQuantidade(10);
+
         String id =
                 given()
                         .header("Authorization", this.token)
                         .contentType(ContentType.JSON)
-                        .body(produtoCadastrado)
+                        .body(produtoEditado)
                 .when()
-                        .put("/produtos")
+                        .put("/produtos/{_id}", idProduto)
                 .then()
                         .log().all()
-                        .statusCode(400)
-                        .body("message", equalTo("Editar produto com sucesso"))
-                        .extract().jsonPath().get("nome").toString()
+                        .statusCode(200)
+                        .body("message", equalTo("Registro alterado com sucesso"))
+                        .extract().jsonPath().get("_id").toString()
                 ;
 
 
-        // test
         ProdutoPojo produtoResultado =
                 given()
                         .log().all()
                         .header("Authorization", this.token)
                         .pathParam("_id", id)
                 .when()
-                        .get("/produtos/")
+                        .get("/produtos/{_id}")
                 .then()
                         .log().all()
-                        .statusCode(400)
+                        .statusCode(200)
                         .assertThat()
                         .extract()
                             .as(ProdutoPojo.class)
                 ;
 
-        Assertions.assertEquals(produtoCadastrado.getNome(), produtoResultado.getNome());
+
+        Assertions.assertEquals(produtoEditado.getNome(), produtoResultado.getNome());
 
 
     }
@@ -331,82 +330,82 @@ public class Task02Test {
 
     @Test
     public void testEditarProdutoPorIdComNomeExistente(){
-        String idProduto = "2sHQLTOVmDWe1spG";
+        String idProduto = "BeeJh5lz3k6kSIzA";
 
-        ProdutoPojo produtoCadastrado = new ProdutoPojo();
-        produtoCadastrado.setNome("Videocasset");
-        produtoCadastrado.setPreco(1246);
-        produtoCadastrado.setDescricao("Periferico");
-        produtoCadastrado.setQuantidade(10);
+        ProdutoPojo produtoEditado = new ProdutoPojo();
+        produtoEditado.setNome("Logitech MX Vertical");
+        produtoEditado.setPreco(238);
+        produtoEditado.setDescricao("Gamer");
+        produtoEditado.setQuantidade(197);
 
-        //request
-                given()
-                        .header("Authorization", this.token)
-                        .contentType(ContentType.JSON)
-                        .body(produtoCadastrado)
-                        .pathParam("_id", idProduto )
-                .when()
-                        .put("/produtos/{_id}")
-                .then()
-                        .log().all()
-                        .statusCode(400)
-                        .body("message", equalTo("Já existe produto com esse nome"))
-                ;
-
-
-        // test
-        ProdutoPojo produtoResultado =
-                given()
-                        .log().all()
-                        .header("Authorization", this.token)
-                        .pathParam("_id", idProduto)
-                .when()
-                        .get("/produtos/")
-                .then()
-                        .log().all()
-                        .statusCode(400)
-                        .assertThat()
-                        .extract()
-                            .as(ProdutoPojo.class)
-                ;
-
-        Assertions.assertEquals(produtoCadastrado.getNome(), produtoResultado.getNome());
-    }
-
-    @Test
-    public void testEditarProdutoPorIdInexistente(){
-        String idProduto = "-69a";
-
-        ProdutoPojo produtoCadastrado = new ProdutoPojo();
-        produtoCadastrado.setNome("Logitech Mouse novo");
-        produtoCadastrado.setPreco(47);
-        produtoCadastrado.setDescricao("Copo New Yor Giants");
-        produtoCadastrado.setQuantidade(15);
-
-        //request
         String id =
                 given()
                         .header("Authorization", this.token)
                         .contentType(ContentType.JSON)
-                        .body(produtoCadastrado)
+                        .body(produtoEditado)
                 .when()
-                        .put("/produtos")
+                        .put("/produtos/{_id}", idProduto)
                 .then()
                         .log().all()
                         .statusCode(400)
-                        .body("message", equalTo("Não foi possível editar produto"))
-                        .extract().jsonPath().get("nome").toString()
+                        .body("message", equalTo("Já existe produto com esse nome"))
+                        .extract().jsonPath().get("_id").toString()
                 ;
 
 
-        // test
         ProdutoPojo produtoResultado =
                 given()
                         .log().all()
                         .header("Authorization", this.token)
                         .pathParam("_id", id)
                 .when()
-                        .get("/produtos/")
+                        .get("/produtos/{_id}")
+                .then()
+                        .log().all()
+                        .statusCode(200)
+                        .assertThat()
+                        .extract()
+                            .as(ProdutoPojo.class)
+                ;
+
+        Assertions.assertEquals(produtoEditado.getNome(), produtoResultado.getNome());
+    }
+
+    @Test
+    public void testEditarProdutoPorIdInexistente(){
+        String idProduto = "-69a";
+
+        ProdutoPojo produtoEditado = new ProdutoPojo();
+        produtoEditado.setNome("Logitech Mouse novo");
+        produtoEditado.setPreco(47);
+        produtoEditado.setDescricao("Copo New Yor Giants");
+        produtoEditado.setQuantidade(15);
+
+
+        String id =
+                given()
+                        .header("Authorization", this.token)
+                        .contentType(ContentType.JSON)
+                        .pathParam("_id", idProduto )
+                        .body(produtoEditado)
+                .when()
+                        .put("/produtos/{_id}")
+                .then()
+                        .log().all()
+                        .statusCode(400)
+                        .body("message", equalTo("Já existe produto com esse nome"))
+                        .extract().jsonPath().get("_id").toString()
+
+                ;
+
+
+        ProdutoPojo produtoResultado =
+                given()
+                        .log().all()
+                        .header("Authorization", this.token)
+                        .pathParam("_id", id)
+                .when()
+                        .get("/produtos/{_id}")
                 .then()
                         .log().all()
                         .statusCode(400)
@@ -415,7 +414,7 @@ public class Task02Test {
                             .as(ProdutoPojo.class)
                 ;
 
-        Assertions.assertEquals(produtoCadastrado.getNome(), produtoResultado.getNome());
+        Assertions.assertEquals(produtoEditado.getNome(), produtoResultado.getNome());
 
     }
 
